@@ -1,5 +1,30 @@
 public class Mutacao {
 
+
+    public static void mutacaoCx(Caminho filho){
+        // Porcentagem ocorrencia mutacao
+        int porcentOcorrenciaMutacao = 2;
+        // Posicao dos genes q sofrerao a mutacao
+        int chancesMutacao = tools.generateRandomValue(0, 100);
+        int totalGensMutados = 1;
+
+        if (chancesMutacao <= porcentOcorrenciaMutacao){
+            Cidade cityBkp = new Cidade();
+            int[] randomPos = tools.fillVetorRandomValues(85);
+            cityBkp = filho.sequenciaCidades.get(randomPos[0]);
+            filho.sequenciaCidades.set(randomPos[0],
+                    filho.sequenciaCidades.get(randomPos[1])
+            );
+            filho.sequenciaCidades.set(randomPos[1],
+                    cityBkp);
+        }
+    }
+
+
+
+
+
+
     // Recebe um filho gerado p/ randomizar se sofrerá ou nao uma MUTACAO
     // Metodo basico P-Med
     public static void mutacaoSimples(Cromossomo filhoGerado){
