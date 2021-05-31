@@ -6,39 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class tools {
-
-    static double avaliacao(int vet[], int mat[][]) {
-        int maxPts = mat.length;
-        double somatorio = 0;
-        double dist;
-        double menorDist;
-        for (int i = 0; i < maxPts; i++) {
-            menorDist = Double.MAX_VALUE;
-            for (int j = 0; j < vet.length; j++) {
-                dist = getRange(mat, vet[j], i);
-                if (menorDist > dist) {
-                    menorDist = dist;
-                }
-            }
-            somatorio += menorDist;
-        }
-        return somatorio;
-
-    }
-
-    public static int generateRandomValue(int min, int max){
-        return (int)Math.floor(Math.random()*(max-min+1)+min);
-    }
-
-    // TODO: Redesign - essa porra ta no lugar errado
-    static double getRange(int mat[][], int c1, int c2) {
-        double distancia;
-        int a = mat[c1][0] - mat[c2][0];
-        int b = mat[c1][1] - mat[c2][1];
-        distancia = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-        return distancia;
-    }
-
     public static int[][] loadFile(String path) {
         FileReader arquivo;
         BufferedReader buffer;
@@ -72,17 +39,62 @@ public class tools {
         }
     }
 
+    public static int generateRandomValue(int min, int max){
+        return (int)Math.floor(Math.random()*(max-min+1)+min);
+    }
+
     public static int[] fillVetorRandomValues(int range){
         int array[] = new int[range];
         Random rand = new Random();
         for (int i = 0; i < array.length ; i++) {
-            int randomValue = rand.nextInt(324);
+//            int randomValue = rand.nextInt(324);
+            int randomValue = rand.nextInt(99);
             array[i] = randomValue;
         }
         return array;
     }
 
-    // TODO: Redesign - essa porra ta no lugar errado
+
+    // Caxeiro V.
+
+    // Determinar a distancia entre duas cidades recebidas
+    static double getRangeCities(int mat[][], Cidade city1, Cidade city2){
+        double distancia;
+        int a = mat[city1.getX()][0] - mat[city2.getY()][0];
+        int b = mat[city1.getX()][1] - mat[city2.getY()][1];
+        distancia = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+        return distancia;
+    }
+
+
+    // P-Med
+    static double avaliacao(int vet[], int mat[][]) {
+        int maxPts = mat.length;
+        double somatorio = 0;
+        double dist;
+        double menorDist;
+
+        for (int i = 0; i < maxPts; i++) {
+            menorDist = Double.MAX_VALUE;
+            for (int j = 0; j < vet.length; j++) {
+                dist = getRange(mat, vet[j], i);
+                if (menorDist > dist) {
+                    menorDist = dist;
+                }
+            }
+            somatorio += menorDist;
+        }
+        return somatorio;
+    }
+
+    static double getRange(int mat[][], int c1, int c2) {
+        double distancia;
+        int a = mat[c1][0] - mat[c2][0];
+        int b = mat[c1][1] - mat[c2][1];
+        distancia = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+        return distancia;
+}
+
     public static Solucao teitzBart(int vet[], int matrix[][], double fitness){
         int maxPointsValue = 324;
         for (int i = 0; i < vet.length; i++){
@@ -101,7 +113,6 @@ public class tools {
         return solution;
     }
 
-    // TODO: Redesign - essa porra ta no lugar errado
     public static Cromossomo teitzBartCromo(int vet[], int mat[][], double fitness){
         // TODO: vet[] => Gene
         int maxPoints = 324;

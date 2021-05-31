@@ -2,6 +2,16 @@ import java.util.ArrayList;
 
 public class PopHandling {
 
+
+    public static void findClone(PopulacaoCaminhos pop, Caminho filhoG){
+        ////
+
+        boolean cloneFound = false;
+    }
+
+
+
+    // P-med
     // Encontrar se o filho gerado tem clone na populacao
     public static boolean findClones(Populacao pop, Cromossomo filhoGerado){
         boolean isCloneFound = false;
@@ -15,6 +25,7 @@ public class PopHandling {
         return isCloneFound;
     }
 
+    // P-med
     public static void reinsert(Populacao pop, Cromossomo filhoInserir, Cromossomo pai1, Cromossomo pai2){
         ArrayList cromossPop = pop.cromossomos;
         Cromossomo piorPai = null;

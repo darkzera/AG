@@ -5,6 +5,7 @@ public class main {
         Populacao populacao = new Populacao();
         long startTime = System.currentTimeMillis();
 
+        // gera pop inicial
         for (int i = 0; i < populacao.getLenght(); i++) {
             int vet[] = tools.fillVetorRandomValues(10);
             double fitness = (double) tools.avaliacao(vet, mat);
@@ -15,6 +16,7 @@ public class main {
         System.out.println("Melhor fit: " + populacao.getBtterFit()+
                 "\n Pior fit: " + populacao.getWorstFit()
         );
+        // print do status com a populacao inicial
 
         Populacao paisSelecionados = new Populacao();
         int i = 0;
@@ -27,19 +29,18 @@ public class main {
             i++;
         }while(i != 1500000);
 
-        // Fazer alguma coisa com esse detect. clone ou nao, ta aqui atoa por enqto
-
         System.out.println(populacao.exibeCromossomos());
         System.out.println("------------------------------------------------------------------------------------");
         System.out.println("Melhor fit: " + populacao.getBtterFit()+
-                "\nPior fit: " + populacao.getWorstFit()
-        );
+                "\nPior fit: " + populacao.getWorstFit());
 
         long totalTime = (System.currentTimeMillis() - startTime) / 60000;
         System.out.println("T/min: " + totalTime);
         totalTime = (System.currentTimeMillis() - startTime) / 1000;
         System.out.println("T/sec: " + totalTime);
         System.out.println("------------------------------------------------------------------------------------");
+        // print status final da solucao
+
 
 
     }
