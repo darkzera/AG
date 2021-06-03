@@ -7,7 +7,7 @@ public class Caminho {
     Cidade inicio;
     double fitness;
     double chance;
-
+    int gen = 1;
 
     public void findRepetidos(){
         for (int i = 0; i < sequenciaCidades.size(); i++) {
@@ -24,10 +24,10 @@ public class Caminho {
         Cidade melhorCidade = new Cidade();
         double menorDist = Double.MAX_VALUE;
         for (int i = 0; i < sequenciaCidades.size(); i++) {
-           if (menorDist > pAtual.rangeToCidade(sequenciaCidades.get(i))) {
-               if (false)
-               melhorCidade = sequenciaCidades.get(i);
-           }
+            if (menorDist > pAtual.rangeToCidade(sequenciaCidades.get(i))) {
+                if (false)
+                    melhorCidade = sequenciaCidades.get(i);
+            }
         }
         return melhorCidade;
     }
@@ -55,27 +55,24 @@ public class Caminho {
         return rangeToNextPoint;
     }
 
-    public void setInicio(Cidade cidadeInicio){
-        this.inicio = cidadeInicio;
+    public void calcChance(double fitTotal) {
+        this.chance = (this.fitness * 100) / fitTotal;
     }
 
     public double getFitness() {
         return fitness;
     }
-
+    public void setInicio(Cidade cidadeInicio){
+        this.inicio = cidadeInicio;
+    }
     public void setCaminho(ArrayList<Cidade> cidadesAdd){
         this.sequenciaCidades = cidadesAdd;
     }
     public void addCidade(Cidade c){
         sequenciaCidades.add(c);
     }
-
     public void addCidade(int index, Cidade c){
         sequenciaCidades.set(index, c);
-    }
-
-    public void calcChance(double fitTotal) {
-        this.chance = (this.fitness * 100) / fitTotal;
     }
 
     // Care with this method
@@ -83,23 +80,14 @@ public class Caminho {
         sequenciaCidades = arrListCidade;
     }
 
-
-    // Metodo pra verificar se este caminho visitou X cidade recebida por parametro
-    public boolean visitCity(Cidade c) {
-        if (c != null) {
-            return sequenciaCidades.contains(c);
-        }
-        return false;
-    }
-
-
     @Override
     public String toString() {
         String rst = "";
         for (Cidade c: sequenciaCidades) {
-           rst += c.toString();
+            rst += c.toString();
         }
         rst += "\n - Fitness: " + this.fitness;
+        rst += "\n----------------------------\n";
         return rst;
     }
     public String fitString() {

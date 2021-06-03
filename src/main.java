@@ -27,7 +27,8 @@ public class main {
                 PopHandling.reinsert(populacao, filhoDoCruzamento, paisSelecionados.cromossomos.get(0), paisSelecionados.cromossomos.get(1));
             }
             i++;
-        }while(i != 1500000);
+        }while(i != 2);
+//    }while(i != 1500000);
 
         System.out.println(populacao.exibeCromossomos());
         System.out.println("------------------------------------------------------------------------------------");

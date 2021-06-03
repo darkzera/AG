@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class PopulacaoCaminhos {
     ArrayList<Caminho> caminhosPopulacao = new ArrayList<>();
 
+
     public ArrayList<Caminho> getCaminhosPopulacao() {
         return caminhosPopulacao;
     }
-
     public void setCaminhosPopulacao(ArrayList<Caminho> caminhosPopulacao) {
         this.caminhosPopulacao = caminhosPopulacao;
     }
@@ -19,7 +19,7 @@ public class PopulacaoCaminhos {
         String rslt = "";
         int qt = 0;
         for (Caminho caminho : caminhosPopulacao ) {
-            rslt += "\n-----Path " + qt + "\n";
+            rslt += "\n-----" + qt + "\n";
             rslt += caminho.sequenciaCidades.toString() + "\n Fitness: " + caminho.fitness;
             qt++;
         }

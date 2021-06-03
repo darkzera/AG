@@ -54,11 +54,13 @@ public class tools {
         return array;
     }
 
+    public static void printBar(){
+        System.out.println("===================================================================================================================================");
+    }
 
-    // Caxeiro V.
-
+    ////////////// Caxeiro V.
     // Determinar a distancia entre duas cidades recebidas
-    static double getRangeCities(int mat[][], Cidade city1, Cidade city2){
+    public static double getRangeCities(int mat[][], Cidade city1, Cidade city2){
         double distancia;
         int a = mat[city1.getX()][0] - mat[city2.getY()][0];
         int b = mat[city1.getX()][1] - mat[city2.getY()][1];
@@ -66,8 +68,20 @@ public class tools {
         return distancia;
     }
 
+    public static int[][] mapCities(int qtdCidades){
+        int[][] arrMapeado = new int[qtdCidades][2];
+        switch (qtdCidades){
+            case 100:
+                arrMapeado = loadFile("src/100.txt");
+                break;
+            case 324:
+                arrMapeado = loadFile("src/324.txt");
+                break;
+        }
+        return arrMapeado;
+    }
 
-    // P-Med
+    /////////////// P-Med
     static double avaliacao(int vet[], int mat[][]) {
         int maxPts = mat.length;
         double somatorio = 0;
@@ -93,7 +107,7 @@ public class tools {
         int b = mat[c1][1] - mat[c2][1];
         distancia = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
         return distancia;
-}
+    }
 
     public static Solucao teitzBart(int vet[], int matrix[][], double fitness){
         int maxPointsValue = 324;

@@ -3,10 +3,9 @@ public class Mutacao {
 
     public static void mutacaoCx(Caminho filho){
         // Porcentagem ocorrencia mutacao
-        int porcentOcorrenciaMutacao = 2;
+        int porcentOcorrenciaMutacao = 1;
         // Posicao dos genes q sofrerao a mutacao
         int chancesMutacao = tools.generateRandomValue(0, 100);
-        int totalGensMutados = 1;
 
         if (chancesMutacao <= porcentOcorrenciaMutacao){
             Cidade cityBkp = new Cidade();

@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Cruzamento {
@@ -39,7 +40,6 @@ public class Cruzamento {
         filho2 = findAndReplace(filho2, paiAlvo, ptsCorte);
         filho2.setFitness();
 
-
         if (filho1.getFitness() > filho2.getFitness()) {
             filho1.setFitness();
             Mutacao.mutacaoCx(filho1);
@@ -48,10 +48,6 @@ public class Cruzamento {
         Mutacao.mutacaoCx(filho2);
         filho2.setFitness();
         return filho2;
-
-
-
-
     }
 
     private static Caminho findAndReplace(Caminho filhoGerado, Caminho pai, int[] ptsCorte) {
@@ -75,9 +71,6 @@ public class Cruzamento {
                             break;
                         }
                         addedSub++;
-
-
-
                     }
                 }
             }
@@ -89,7 +82,6 @@ public class Cruzamento {
                 if (fimCorte == 99){
                     plus = 1;
                 }
-
                 if (!sequenciaHasCidade(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + plus), pai.sequenciaCidades.get(i))) {
                     filhoGerado.sequenciaCidades.add(pai.sequenciaCidades.get(i));
                 } else {
