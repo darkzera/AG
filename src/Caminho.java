@@ -38,14 +38,12 @@ public class Caminho {
 
         // Distancia entre cidade inicio -> primeira cidade (gene) do meu caminho
         rangeToNextPoint += this.inicio.rangeToCidade(sequenciaCidades.get(0));
-
         // Range entre a 1a cidade até a ultima
         for (i = 0; i < sequenciaCidades.size()-1; i++) {
             rangeToNextPoint += sequenciaCidades.get(i).rangeToCidade(
                     sequenciaCidades.get(i+1)
             );
         }
-
         // Range entre a ultima cidade e cidade inicio
         rangeToNextPoint += sequenciaCidades.get(sequenciaCidades.size()-1).rangeToCidade(
                 this.inicio
@@ -82,12 +80,16 @@ public class Caminho {
 
     @Override
     public String toString() {
-        String rst = "";
-        for (Cidade c: sequenciaCidades) {
+        String rst = "\n";
+        int i = 0;
+        for (Cidade c : sequenciaCidades) {
+            if (i % 5 == 0) {
+                rst += "\n";
+            }
             rst += c.toString();
+            i++;
         }
         rst += "\n - Fitness: " + this.fitness;
-        rst += "\n----------------------------\n";
         return rst;
     }
     public String fitString() {

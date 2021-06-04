@@ -19,7 +19,7 @@ public class PopulacaoCaminhos {
         String rslt = "";
         int qt = 0;
         for (Caminho caminho : caminhosPopulacao ) {
-            rslt += "\n-----" + qt + "\n";
+            rslt += "\n----" + qt + "\n";
             rslt += caminho.sequenciaCidades.toString() + "\n Fitness: " + caminho.fitness;
             qt++;
         }

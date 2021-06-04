@@ -6,11 +6,11 @@ import java.util.Collections;
 
 public class MainCaxeiro {
     public static void main(String[] args) {
-        int tamPopulacao = 20;
+        int tamPopulacao = 10;
         long startTime = System.currentTimeMillis();
         long totalTime = 0;
         int rept = 0;
-        PopulacaoCaminhos pop = PopHandling.generateBasicPopulation(tamPopulacao, 100);
+        PopulacaoCaminhos pop = PopHandling.generateBasicPopulation(tamPopulacao, 20);
 
         // Ciclo TODO: interf
         Caminho melhorFitStart = PopHandling.bestFit(pop);
@@ -23,35 +23,29 @@ public class MainCaxeiro {
             filho.findRepetidos();
             if (melhorFitStart.getFitness() > PopHandling.bestFit(pop).getFitness()) {
                 melhorFitStart = PopHandling.bestFit(pop);
-                System.out.println("Melhor fit encontrado na populacao: " + melhorFitStart.getFitness());
+                System.err.println("Melhor fit encontrado na populacao: " + melhorFitStart.getFitness());
             }
             rept++;
             totalTime = (System.currentTimeMillis() - startTime) / 60000;
-        } while (rept != 50000);
+        } while (rept != 5000000);
 //        } while (totalTime < 120000) ;
 
         // Relatorio final
         System.out.println("------------ Pop Final ------------" );
         System.out.println(pop.caminhosPopulacao.toString());
         Caminho best = PopHandling.bestFit(pop);
-        System.out.println("------------ Best found [Complete] ------------" );
+        tools.printBar();
         System.out.println(best.toString());
         System.out.println("------------ Fitness ------------" );
         System.out.println("Melhor fit: " + best.getFitness());
         System.out.println("Pior fit: " + PopHandling.worstFit(pop).getFitness());
         System.out.println("------------ Status ------------" );
         System.out.println("Tamanho populacao: " + tamPopulacao);
-        System.out.println("Quantidade de cidades: 100 [1 destino + 99 a percorrer]");
+        System.out.println("Quantidade de cidades: " + (pop.caminhosPopulacao.get(0).sequenciaCidades.size()+1));
         totalTime = (System.currentTimeMillis() - startTime) / 60000;
         System.out.print("T/min: " + totalTime);
         totalTime = (System.currentTimeMillis() - startTime) / 1000;
         System.out.print(" - T/sec: " + totalTime);
-
-        tools.printBar();
-        System.out.println(pop.caminhosPopulacao.get(1).inicio);
-        System.out.println(pop.caminhosPopulacao.get(0).inicio);
-
-
 
         // Pontos
 //        int[][] mat = tools.loadFile("src/100.txt");

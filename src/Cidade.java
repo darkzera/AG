@@ -27,10 +27,11 @@ public class Cidade {
 
     @Override
     public String toString() {
-        return "[" +
-                "x=" + x +
-                "| y=" + y +
-                ']';
+        return " [" +
+                "X: " + x +
+                " " +
+                "Y: " + y +
+                "]";
     }
 
     public Cidade(int x, int y) {

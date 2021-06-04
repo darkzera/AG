@@ -43,12 +43,31 @@ public class tools {
         return (int)Math.floor(Math.random()*(max-min+1)+min);
     }
 
-    public static int[] fillVetorRandomValues(int range){
-        int array[] = new int[range];
+    // Retorna ordenado
+    public static int[] generatePointsCrossOver(int maxLimit){
+        int ptsCorte[] = new int[2];
+        for (int i = 0; i < ptsCorte.length ; i++) {
+//            ptsCorte[i] = tools.generateRandomValue(0, 49); // 9
+            ptsCorte[i] = tools.generateRandomValue(0, maxLimit); // originallll
+            // obrigar o segundo vlr a ser maior que o primeiro
+            if (i > 0){
+                int menorValor = 0;
+                if (ptsCorte[i] < ptsCorte[i-1]) {
+                    menorValor = ptsCorte[i];
+                    ptsCorte[i] = ptsCorte[i-1];
+                    ptsCorte[i-1] = menorValor;
+                }
+            }
+        }
+        return ptsCorte;
+    }
+
+    public static int[] fillVetorRandomValues(int sizeArray, int limitRandom){
+        int array[] = new int[sizeArray];
         Random rand = new Random();
         for (int i = 0; i < array.length ; i++) {
 //            int randomValue = rand.nextInt(324);
-            int randomValue = rand.nextInt(99);
+            int randomValue = rand.nextInt(limitRandom);
             array[i] = randomValue;
         }
         return array;
@@ -73,6 +92,9 @@ public class tools {
         switch (qtdCidades){
             case 100:
                 arrMapeado = loadFile("src/100.txt");
+                break;
+            case 20:
+                arrMapeado = loadFile("src/20.txt");
                 break;
             case 324:
                 arrMapeado = loadFile("src/324.txt");

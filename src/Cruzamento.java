@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Cruzamento {
@@ -9,20 +7,9 @@ public class Cruzamento {
         Caminho filho1 = new Caminho();
         Caminho filho2 = new Caminho();
         PopulacaoCaminhos filhos = new PopulacaoCaminhos();
-        int ptsCorte[] = new int[2];
-        for (int i = 0; i < ptsCorte.length ; i++) {
-//            ptsCorte[i] = tools.generateRandomValue(0, 49); // 9
-            ptsCorte[i] = tools.generateRandomValue(0, 89); // originallll
-            // obrigar o segundo vlr a ser maior que o primeiro
-            if (i > 0){
-                int menorValor = 0;
-                if (ptsCorte[i] < ptsCorte[i-1]) {
-                    menorValor = ptsCorte[i];
-                    ptsCorte[i] = ptsCorte[i-1];
-                    ptsCorte[i-1] = menorValor;
-                }
-            }
-        }
+        // Limite range de corte 70% do tamanho do array 0.7 * arr.size
+        int rangeCorte = (int) (0.7 * pais.caminhosPopulacao.get(0).sequenciaCidades.size());
+        int ptsCorte[] = tools.generatePointsCrossOver(rangeCorte);
         int plus = 1;
         Caminho paiAlvo = pais.caminhosPopulacao.get(0);
 
@@ -61,11 +48,11 @@ public class Cruzamento {
                 i = fimCorte + 1;
             }
             if (i < iniCorte) {
-                if (!sequenciaHasCidade(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + 1), pai.sequenciaCidades.get(i))) {
+                if (!sequenceHasCity(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + 1), pai.sequenciaCidades.get(i))) {
                     filhoGerado.sequenciaCidades.set(i, pai.sequenciaCidades.get(i));
                 } else {
                     for (int subGroupPai = iniCorte + addedSub; subGroupPai <= fimCorte; subGroupPai++) {
-                        if (!sequenciaHasCidade(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + 1), pai.sequenciaCidades.get(subGroupPai))) {
+                        if (!sequenceHasCity(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + 1), pai.sequenciaCidades.get(subGroupPai))) {
                             filhoGerado.sequenciaCidades.set(i, pai.sequenciaCidades.get(subGroupPai));
                             addedSub++;
                             break;
@@ -82,11 +69,11 @@ public class Cruzamento {
                 if (fimCorte == 99){
                     plus = 1;
                 }
-                if (!sequenciaHasCidade(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + plus), pai.sequenciaCidades.get(i))) {
+                if (!sequenceHasCity(filhoGerado.sequenciaCidades.subList(iniCorte, fimCorte + plus), pai.sequenciaCidades.get(i))) {
                     filhoGerado.sequenciaCidades.add(pai.sequenciaCidades.get(i));
                 } else {
                     for (int subGroupPai = iniCorte + addedSub; subGroupPai <= fimCorte; subGroupPai++) {
-                        if (!sequenciaHasCidade(filhoGerado.sequenciaCidades.subList(0, fimCorte + plus), pai.sequenciaCidades.get(subGroupPai))) {
+                        if (!sequenceHasCity(filhoGerado.sequenciaCidades.subList(0, fimCorte + plus), pai.sequenciaCidades.get(subGroupPai))) {
                             filhoGerado.sequenciaCidades.add(i, pai.sequenciaCidades.get(subGroupPai)
                             );
                             addedSub++;
@@ -156,7 +143,7 @@ public class Cruzamento {
         }
     }
 
-    private static boolean sequenciaHasCidade(List<Cidade> cidades, Cidade cidadeBusca) {
+    private static boolean sequenceHasCity(List<Cidade> cidades, Cidade cidadeBusca) {
         boolean found = false;
         for (int i = 0; i < cidades.size(); i++){
             if (cidades.get(i).compair(cidadeBusca)) {

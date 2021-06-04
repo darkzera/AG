@@ -14,6 +14,7 @@ public class PopHandling {
                 menorFit = camin.getFitness();
             }
         }
+
         for (Caminho camin : p.caminhosPopulacao) {
             if (menorFit == camin.getFitness()){
                 return camin;

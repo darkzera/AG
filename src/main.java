@@ -7,7 +7,7 @@ public class main {
 
         // gera pop inicial
         for (int i = 0; i < populacao.getLenght(); i++) {
-            int vet[] = tools.fillVetorRandomValues(10);
+            int vet[] = tools.fillVetorRandomValues(10, 10);
             double fitness = (double) tools.avaliacao(vet, mat);
             populacao.addCromossomo(tools.teitzBartCromo(vet, mat, fitness));
         }
