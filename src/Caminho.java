@@ -13,11 +13,10 @@ public class Caminho {
         for (int i = 0; i < sequenciaCidades.size(); i++) {
             for (int j = 0; j < sequenciaCidades.size(); j++) {
                 if (i != j && sequenciaCidades.get(i).getX() == sequenciaCidades.get(j).getX() && sequenciaCidades.get(i).getY() == sequenciaCidades.get(j).getY()) {
-                    System.out.println("Caminho.findRepetidos()");
-                    System.out.print(" - > REPETIDO AQ POW");
+                    System.err.println("Caminho.findRepetidos()");
                 }
-            } // end for J
-        } // end for I
+            }
+        }
     }
 
     private Cidade getCidadeMaisProxima(Cidade pAtual){
@@ -34,12 +33,11 @@ public class Caminho {
 
     public double setFitness() {
         double rangeToNextPoint = 0;
-        int i = 0;
 
         // Distancia entre cidade inicio -> primeira cidade (gene) do meu caminho
         rangeToNextPoint += this.inicio.rangeToCidade(sequenciaCidades.get(0));
         // Range entre a 1a cidade até a ultima
-        for (i = 0; i < sequenciaCidades.size()-1; i++) {
+        for (int i = 0; i < sequenciaCidades.size()-1; i++) {
             rangeToNextPoint += sequenciaCidades.get(i).rangeToCidade(
                     sequenciaCidades.get(i+1)
             );

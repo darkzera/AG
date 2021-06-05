@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Cruzamento {
@@ -9,7 +10,8 @@ public class Cruzamento {
         PopulacaoCaminhos filhos = new PopulacaoCaminhos();
         // Limite range de corte 70% do tamanho do array 0.7 * arr.size
         int rangeCorte = (int) (0.7 * pais.caminhosPopulacao.get(0).sequenciaCidades.size());
-        int ptsCorte[] = tools.generatePointsCrossOver(rangeCorte);
+        int[] ptsCorte = tools.generatePointsCrossOver(rangeCorte);
+//        int ptsCorte[] = {3, 5};
         int plus = 1;
         Caminho paiAlvo = pais.caminhosPopulacao.get(0);
 
@@ -27,7 +29,7 @@ public class Cruzamento {
         filho2 = findAndReplace(filho2, paiAlvo, ptsCorte);
         filho2.setFitness();
 
-        if (filho1.getFitness() > filho2.getFitness()) {
+        if (filho1.getFitness() < filho2.getFitness()) {
             filho1.setFitness();
             Mutacao.mutacaoCx(filho1);
             return filho1;
@@ -145,8 +147,8 @@ public class Cruzamento {
 
     private static boolean sequenceHasCity(List<Cidade> cidades, Cidade cidadeBusca) {
         boolean found = false;
-        for (int i = 0; i < cidades.size(); i++){
-            if (cidades.get(i).compair(cidadeBusca)) {
+        for (Cidade cidade : cidades) {
+            if (cidade.compair(cidadeBusca)) {
                 found = true;
             }
         }

@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class MainTesteCruzamento {
     public static void main(String[] args) {
@@ -8,25 +7,53 @@ public class MainTesteCruzamento {
         ArrayList<Cidade> cidades = new ArrayList<>();
         ArrayList<Cidade> cidades2 = new ArrayList<>();
         PopulacaoCaminhos p = new PopulacaoCaminhos();
+        Cidade c = new Cidade(3,3);
+        cidades.add(c);
+        c = new Cidade(7, 7);
+        cidades.add(c);
+        c = new Cidade(5, 5);
+        cidades.add(c);
+        c = new Cidade(1, 1);
+        cidades.add(c);
+        c = new Cidade(6, 6);
+        cidades.add(c);
+        c = new Cidade(8, 8);
+        cidades.add(c);
+        c = new Cidade(2, 2);
+        cidades.add(c);
+        c = new Cidade(4, 4);
+        cidades.add(c);
+        cidades2 = new ArrayList<>();
+        cidades2.addAll(cidades);
+        Collections.sort(cidades2, new Comparator<Cidade>() {
+            @Override
+            public int compare(Cidade o1, Cidade o2) {
+                if (o1.getX() > o2.getX()){
+                    return 1;
+                } else if (o1.getX() < o2.getX()){
+                    return -1;
+                }
+                return 0;
+            }
+        });
+        c = new Cidade();
+
+        Caminho path = new Caminho();
+        path.sequenciaCidades = cidades;
+        path.inicio = c;
+        p.addCaminho(path);
+        path = new Caminho();
+        path.sequenciaCidades = cidades2;
+        path.inicio = c;
+        p.addCaminho(path);
+
+
+        Caminho filho = Cruzamento.cruzCaix(p);
+        System.out.println(filho.toString());
 
 
 
-        cidades2.add(new Cidade(120, 120));
-        for (int i = 0; cidades.size() < 100; i++) {
-            cidades.add(new Cidade(i, i));
-        }
-        c1.setCaminho(cidades);
-        System.out.println(c1.sequenciaCidades.size());
-        for (int i = 101; cidades2.size() < 100; i++) {
-            cidades2.add(new Cidade(i, i));
-        }
-        c2.setCaminho(cidades2);
-        System.out.println(c2.sequenciaCidades.size());
-        p.addCaminho(c1);
-        p.addCaminho(c2);
 
-        System.out.println(c1.toString()+ "\n" + c2.toString() + "\nb");
-        Cruzamento.cruzCaix(p).findRepetidos();
 
 
     }

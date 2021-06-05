@@ -34,6 +34,10 @@ public class Cidade {
                 "]";
     }
 
+    public String print(){
+        return "[X: " + x + "] ";
+    }
+
     public Cidade(int x, int y) {
         this.x = x;
         this.y = y;
