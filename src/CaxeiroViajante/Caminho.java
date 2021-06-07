@@ -1,6 +1,8 @@
+package CaxeiroViajante;
+
 import java.util.ArrayList;
 
-// Caminho = Cromossomo
+// CaxeiroViajante.Caminho = Cromossomo
 public class Caminho {
     // Cidades = Genes
     ArrayList<Cidade> sequenciaCidades = new ArrayList<Cidade>();
@@ -13,7 +15,7 @@ public class Caminho {
         for (int i = 0; i < sequenciaCidades.size(); i++) {
             for (int j = 0; j < sequenciaCidades.size(); j++) {
                 if (i != j && sequenciaCidades.get(i).getX() == sequenciaCidades.get(j).getX() && sequenciaCidades.get(i).getY() == sequenciaCidades.get(j).getY()) {
-                    System.err.println("Caminho.findRepetidos()");
+                    System.err.println("CaxeiroViajante.Caminho.findRepetidos()");
                 }
             }
         }

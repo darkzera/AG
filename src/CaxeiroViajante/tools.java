@@ -1,5 +1,6 @@
+package CaxeiroViajante;
+
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class tools {
     public static int[] generatePointsCrossOver(int maxLimit){
         int ptsCorte[] = new int[2];
         for (int i = 0; i < ptsCorte.length ; i++) {
-//            ptsCorte[i] = tools.generateRandomValue(0, 49); // 9
+//            ptsCorte[i] = CaxeiroViajante.tools.generateRandomValue(0, 49); // 9
             ptsCorte[i] = tools.generateRandomValue(0, maxLimit); // originallll
             // obrigar o segundo vlr a ser maior que o primeiro
             if (i > 0){
@@ -131,46 +132,46 @@ public class tools {
         return distancia;
     }
 
-    public static Solucao teitzBart(int vet[], int matrix[][], double fitness){
-        int maxPointsValue = 324;
-        for (int i = 0; i < vet.length; i++){
-            int posBkp = vet[i];
-            for (int t = 0; t < maxPointsValue; t++) {
-                vet[i] = t;
-                double newFit = tools.avaliacao(vet, matrix);
-                if (newFit < fitness){
-                    fitness = newFit;
-                    posBkp = t;
-                }
-            }
-            vet[i] = posBkp;
-        }
-        Solucao solution = new Solucao(vet, fitness);
-        return solution;
-    }
-
-    public static Cromossomo teitzBartCromo(int vet[], int mat[][], double fitness){
-        // TODO: vet[] => Gene
-        int maxPoints = 324;
-        ArrayList<Integer> genes = new ArrayList<Integer>();
-        for (int i = 0; i < vet.length; i++){
-            int posBkp = vet[i];
-            for (int t = 0; t < maxPoints; t++) {
-                vet[i] = t;
-                double newFit = tools.avaliacao(vet, mat);
-                if (newFit < fitness){
-                    fitness = newFit;
-                    posBkp = t;
-                }
-            }
-            vet[i] = posBkp;
-            genes.add(vet[i]);
-        }
-        Cromossomo cromo = new Cromossomo(genes, fitness);
-        return cromo;
-    }
-
-
+//    public static Solucao teitzBart(int vet[], int matrix[][], double fitness){
+//        int maxPointsValue = 324;
+//        for (int i = 0; i < vet.length; i++){
+//            int posBkp = vet[i];
+//            for (int t = 0; t < maxPointsValue; t++) {
+//                vet[i] = t;
+//                double newFit = tools.avaliacao(vet, matrix);
+//                if (newFit < fitness){
+//                    fitness = newFit;
+//                    posBkp = t;
+//                }
+//            }
+//            vet[i] = posBkp;
+//        }
+//        Solucao solution = new Solucao(vet, fitness);
+//        return solution;
+//    }
+//
+//    public static Cromossomo teitzBartCromo(int vet[], int mat[][], double fitness){
+//        // TODO: vet[] => Gene
+//        int maxPoints = 324;
+//        ArrayList<Integer> genes = new ArrayList<Integer>();
+//        for (int i = 0; i < vet.length; i++){
+//            int posBkp = vet[i];
+//            for (int t = 0; t < maxPoints; t++) {
+//                vet[i] = t;
+//                double newFit = tools.avaliacao(vet, mat);
+//                if (newFit < fitness){
+//                    fitness = newFit;
+//                    posBkp = t;
+//                }
+//            }
+//            vet[i] = posBkp;
+//            genes.add(vet[i]);
+//        }
+//        Cromossomo cromo = new Cromossomo(genes, fitness);
+//        return cromo;
+//    }
+//
+//
 
 
 

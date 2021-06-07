@@ -1,9 +1,11 @@
+package CaxeiroViajante;
+
 public class Cidade {
     private int x, y;
     private String nome;
 
 
-    // Calculca distancia de <this> cidade para Cidade recebida por parametro
+    // Calculca distancia de <this> cidade para CaxeiroViajante.Cidade recebida por parametro
     public double rangeToCidade(Cidade c){
 //        int _x = Math.abs(this.x - c.x);
 //        int _y = Math.abs(this.y - c.y);

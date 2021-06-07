@@ -1,8 +1,4 @@
-import com.sun.tools.jconsole.JConsoleContext;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+package CaxeiroViajante;
 
 public class MainCaxeiro {
     public static void main(String[] args) {

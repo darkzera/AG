@@ -1,3 +1,5 @@
+package CaxeiroViajante;
+
 import java.util.*;
 
 public class MainTesteCruzamento {
@@ -25,12 +27,12 @@ public class MainTesteCruzamento {
         cidades.add(c);
         cidades2 = new ArrayList<>();
         cidades2.addAll(cidades);
-        Collections.sort(cidades2, new Comparator<Cidade>() {
+        cidades2.sort(new Comparator<Cidade>() {
             @Override
             public int compare(Cidade o1, Cidade o2) {
-                if (o1.getX() > o2.getX()){
+                if (o1.getX() > o2.getX()) {
                     return 1;
-                } else if (o1.getX() < o2.getX()){
+                } else if (o1.getX() < o2.getX()) {
                     return -1;
                 }
                 return 0;

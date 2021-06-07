@@ -1,3 +1,5 @@
+import CaxeiroViajante.tools;
+
 import java.util.ArrayList;
 
 public class Cromossomo {
@@ -33,11 +35,11 @@ public class Cromossomo {
 
 
     // Calcular fitness based in 324.txt file
-    public void calcFitness(){
-        int[][] mat = tools.loadFile("src/324.txt");
-        this.fitness =
-                tools.avaliacao(genes.stream().mapToInt(Integer::intValue).toArray(), mat);
-    }
+//    public void calcFitness(){
+//        int[][] mat = tools.loadFile("src/324.txt");
+//        this.fitness =
+//                tools.avaliacao(genes.stream().mapToInt(Integer::intValue).toArray(), mat);
+//    }
 
 
 }
