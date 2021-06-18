@@ -1,170 +1,113 @@
-[embed]https://drive.google.com/file/d/1clF_n-A81dAhs9zMuU7CGUh3O2VOAIXY/view?usp=sharing[/embed]
+﻿INSTITUTO FEDERAL DO ESPÍRITO SANTO - IFES CAMPUS SANTA TERESA
 
-# INSTITUTO FEDERAL DO ESPÍRITO SANTO - IFES
+TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS TÓPICOS ESPECIAIS II
 
-- RESUMO
-- INTRODUÇÃO
-- METODOLOGIA
-- RESULTADOS E DISCUSSÃO
-- CONCLUSÃO
-- TABELAS E FIGURAS
-- REFERÊNCIAS
+Lucas Augusto Cruz Lopes 20171TADST0430
 
+Santa Teresa - ES, Junho de 2021
 
-## RESUMO
+[**RESUMO](#_page2_x85.04_y85.04) **[3** ](#_page2_x85.04_y85.04)[INTRODUÇÃO](#_page3_x85.04_y85.04) [4** ](#_page3_x85.04_y85.04)[METODOLOGIA](#_page4_x85.04_y85.04) [5** ](#_page4_x85.04_y85.04)[RESULTADOS E DISCUSSÃO](#_page6_x85.04_y85.04) [7** ](#_page6_x85.04_y85.04)[CONCLUSÃO](#_page7_x85.04_y85.04) [8** ](#_page7_x85.04_y85.04)[TABELAS E FIGURAS](#_page8_x85.04_y106.79) [9** ](#_page8_x85.04_y106.79)[REFERÊNCIAS](#_page11_x85.04_y85.04) [13**](#_page11_x85.04_y85.04)**
 
-Algoritmos Genéticos são algoritmos inspirados na teoria darwinista da
-evolução natural.Ondeosindivíduosmaisaptossobrevivem maisepassamsuas
-características aos descendentes, assegurandoqueosatributosvantajosossejam
-disseminadosemumapopulação.Estesalgoritmospodemseraplicadosadiversas
-necessidadesquenecessitamdesoluçõestecnológicasdomundoatual,taiscomo
-encontrar a logística e roteamento de veículos, sequenciamento de genomas,
-marcação e perfuração de circuitos integrados, auxiliar no rotaçãode telescópio
-entre outros.
+**RESUMO**
 
-**_Palavras-chave:_**
+Algoritmos Genéticos são algoritmos inspirados na teoria darwinista da evolução natural. Onde os indivíduos mais aptos sobrevivem mais e passam suas características aos descendentes, assegurando que os atributos vantajosos sejam disseminados em uma população. Estes algoritmos podem ser aplicados a diversas necessidades que necessitam de soluções tecnológicas do mundo atual, tais como encontrar a logística e roteamento de veículos, sequenciamento de genomas, marcação e perfuração de circuitos integrados, auxiliar no rotação de telescópio entre outros.
 
-_caixeiroviajante,algoritmosgenéticos,mutaçãoportroca,seleçãoporroleta,
-cruzamento pmx_
+***Palavras-chave:***
 
+*caixeiro viajante, algoritmos genéticos, mutação por troca, seleção por roleta, cruzamento pmx*
 
-## INTRODUÇÃO
+**INTRODUÇÃO**
 
-A técnicade algoritmos genéticos de otimização mimetiza osprincípiosda
-seleção naturale buscapelamelhorsolução possívelparaumproblemadefinido,
-pela evolução na população de soluções candidatas.
-Oproblemadocaixeiroviajante,queseráabordadonestetrabalho,éumdos
-clássicosentreosproblemasdeotimizaçãocombinatória.Seu objetivoprincipalé:
-Sedadoumnúmerofinitodecidades(n),entregaromelhortrajeto(n-1)possívelao
-viajante sem que o mesmo visite uma cidade duasvezes eao fim do caminho,
-retorne a cidade inicial. Classificado como um problema _NP-Completo_ , o PCV
-(ProblemadoCaixeiroViajante), umavezqueonúmeroderotaspossíveiscresce
-exponencialmenteemfunçãodonúmerodecidades.Tornandoimpraticávelousode
-algoritmos tradicionais para a busca de uma boa solução (caminho). Portanto,
-utilizaremos estratégias de AG ao problema indicado.
-Pela sua complexidade computacional, não há solução precisa para o
-problemadoCaixeiroViajante.Porém,pelasuarelevânciahistóricaeaplicabilidade
-diversa, há várias abordagens sendo estudadas e desenvolvidasna atualidade.
+A técnica de algoritmos genéticos de otimização mimetiza os princípios da seleção natural e busca pela melhor solução possível para um problema definido, pela evolução na população de soluções candidatas.
 
+O problema do caixeiro viajante, que será abordado neste trabalho, é um dos clássicos entre os problemas de otimização combinatória. Seu objetivo principal é: Se dado um número finito de cidades (n), entregar o melhor trajeto (n-1) possível ao viajante sem que o mesmo visite uma cidade duas vezes e ao fim do caminho, retorne a cidade inicial. Classificado como um problema *NP-Completo*, o PCV (Problema do Caixeiro Viajante), uma vez que o número de rotas possíveis cresce exponencialmente em função do número de cidades. Tornando impraticável o uso de algoritmos tradicionais para a busca de uma boa solução (caminho). Portanto, utilizaremos estratégias de AG ao problema indicado.
 
-## METODOLOGIA
+Pela sua complexidade computacional, não há solução precisa para o problema do Caixeiro Viajante. Porém, pela sua relevância histórica e aplicabilidade diversa, há várias abordagens sendo estudadas e desenvolvidas na atualidade.
 
-A primeira fase do trabalho consiste em analisarmos o problema para
-estabelecer a estrutura de classes (Figura 1.1) e atributos para apresentação
-confortável.Arepresentaçãodeuma soluçãoproPCVéchamadadeCaminhoou
-Rota(nanomenclaturaclássicaCromossomo),possuidordegenes,estesganhamo
-signo de Cidades. O desempenho de cada solução é dado pela avaliação da
-distância percorrida entre a sequência de cidadesdefinidas. (Tabela 1.1).
-AseleçãoérealizadaaSeleçãoproporcional(MétododaRoleta)consisteem
-um esquema de seleção natural que selecionaossobreviventes paraa fasede
-reproduçãoconformeosvaloresdefitnessextraídosdafunçãodeaptidãodurantea
-fase de avaliação.
-A Mutaçãoérealizada atravésdeummétodochamadodeSwapMutation,
-que consiste na troca de 2 cidades do mesmo indivíduo.
-Seguidamenteocruzamento,oqualfoiescolhidocomobaseparaestealgoritmofoi
-o Partially Matched Crossover (PMX), tendo como objetivo gerar dois filhos,
-recombinando características de dois pais. A modificação realizadano algoritmo
-PMXfoiaalteraçãodeseufuncionamentodeformaqueaorealizarocorteparaa
-transposição dos elementos limitando-se a 80% de todo tamanho o vetor de
-elementos.
-Inicialmenteserãoselecionadososgenesdoprimeiropaiecriandoumasublistaa
-qual é inserida nas mesmas posições do vetor de elementos do primeiro filho.
-Seguidamenteéselecionadoosmesmointervalodeíndicesdovetordeelementos
-do segundo pai, afimde percorrer todos osíndicesde elementosverificandose
-cada elemento seestáapto aentrar nas posições de mesmo índicenovetorde
-elementosdoindividuofilho,paraistoéverificadoasublistaherdadaanteriormente
-doprimeiropai, casonãoestejapresenteesteseráadicionadonamesmaposição
-do vetor de elementos no filho, seestiver presenteserá verificado a sublistado
-segundo pai buscando o primeiro valor que nãoesteja presentena sub lista do
-primeiro pai, conforme descrito nas Figuras 2.1 e2.2, na seção Tabelas e Figuras.
+**METODOLOGIA**
+
+A primeira fase do trabalho consiste em analisarmos o problema para estabelecer a estrutura de classes (Figura 1.1) e atributos para apresentação confortável. A representação de uma solução pro PCV é chamada de Caminho ou Rota (na nomenclatura clássica Cromossomo), possuidor de genes, estes ganham o signo de Cidades. O desempenho de cada solução é dado pela avaliação da distância percorrida entre a sequência de cidades definidas. (Tabela 1.1).
+
+A seleção é realizada a Seleção proporcional (Método da Roleta) consiste em um esquema de seleção natural que seleciona os sobreviventes para a fase de reprodução conforme os valores de fitness extraídos da função de aptidão durante a fase de avaliação.
+
+A Mutação é realizada através de um método chamado de Swap Mutation, que consiste na troca de 2 cidades do mesmo indivíduo.
+
+Seguidamente o cruzamento, o qual foi escolhido como base para este algoritmo foi
+
+- Partially Matched Crossover (PMX), tendo como objetivo gerar dois filhos, recombinando características de dois pais. A modificação realizada no algoritmo PMX foi a alteração de seu funcionamento de forma que ao realizar o corte para a transposição dos elementos limitando-se a 80% de todo tamanho o vetor de elementos.
+
+Inicialmente serão selecionados os genes do primeiro pai e criando uma sub lista a qual é inserida nas mesmas posições do vetor de elementos do primeiro filho. Seguidamente é selecionado os mesmo intervalo de índices do vetor de elementos do segundo pai, a fim de percorrer todos os índices de elementos verificando se cada elemento se está apto a entrar nas posições de mesmo índice no vetor de elementos do individuo filho, para isto é verificado a sub lista herdada anteriormente do primeiro pai, caso não esteja presente este será adicionado na mesma posição do vetor de elementos no filho, se estiver presente será verificado a sublista do segundo pai buscando o primeiro valor que não esteja presente na sub lista do primeiro pai, conforme descrito nas Figuras 2.1 e 2.2, na seção Tabelas e Figuras. Critério de parada definido foi a realização de execução de forma exaustiva de (n) ciclos com tempo de execução previamente definidos, conforme descrito na Tabela 2.1.
+
+**RESULTADOS E DISCUSSÃO**
+
+Este estudo considera a necessidade do viajante sair da cidade inicial, percorrer todas as outras cidades (n-1) e retornar a cidade de origem. O propósito é encontrar
+
+- caminho com a menor rota possível. Para isso foram utilizados os parâmetros citados na tabela 2.
+
+**CONCLUSÃO**
+
+Com os resultados obtidos e apresentados na tabela 3, é possível perceber que a estratégia utilizada não apresenta eficácia quando operada num largo espaço de tempo, já que os melhores caminhos são selecionados antes dos seis minutos de execução.
+
+**TABELAS E FIGURAS**
+
+**Tabela 1.1 -** Relação entre nomenclaturas da abordagem clássica pro PCV
 
 
-Critériodeparadadefinidofoiarealizaçãode execuçãodeformaexaustivade(n)
-cicloscomtempo deexecuçãopreviamentedefinidos,conformedescritonaTabela
-2.1.
 
-
-## RESULTADOS E DISCUSSÃO
-
-Este estudo considera anecessidade do viajante sair da cidade inicial,percorrer
-todasasoutrascidades(n-1)eretornaracidadedeorigem.Opropósitoéencontrar
-o caminho com amenor rotapossível. Para isso foramutilizados osparâmetros
-citados na tabela 2.
-
-
-## CONCLUSÃO
-
-Comosresultadosobtidoseapresentadosnatabela3,épossívelperceberquea
-estratégiautilizada não apresentaeficácia quandooperada num largoespaçode
-tempo,jáqueosmelhorescaminhossãoselecionadosantesdos seisminutosde
-execução.
-
-
-## TABELAS E FIGURAS
-
-**Tabela 1.1 -** Relação entre nomenclaturas da abordagemclássica pro PCV
-
-```
-Solução Caminho
-Gene Cidade
-Aptidão Fitness (distânciapercorrida)
-População
-```
+|Solução|Caminho|
+| - | - |
+|Gene|Cidade|
+|Aptidão|Fitness (distância percorrida)|
+|População||
 **Tabela 2 -** Parâmetros de execução do algoritmo
 
-```
-Parâmetro Valor
-Tamanho da população 200
-Quantidade de Cidades 35
-Quantidade de Execuções 10
-Tempo de Cada Execução 600 secs (10 min)
-Taxa de mutação 2%
-Limite de Sangria 80% do array
-```
+
+
+|Parâmetro|Valor|
+| - | - |
+|Tamanho da população|200|
+|Quantidade de Cidades|35|
+|Quantidade de Execuções|10|
+|Tempo de Cada Execução|600 secs (10 min)|
+|Taxa de mutação|2%|
+|Limite de Sangria|80% do array|
 **Tabela 3 -** Tempo de Execução - Melhor Fitness
 
-```
-Ordem execucao Melhor encontrado no tempo( sec) Melhor indivíduo (Fitness)
-1 227 4179.
-2 59 4311.
-3 479 4066.
-4 39 4358.
-5 423 4215.
-6 153 4070.
-7 30 4142.
-8 21 4008.
-9 60 3860.
-10 35 4121.
-Média dos Fitness: 4133,
-```
 
+
+|Ordem execucao|Melhor encontrado no tempo( sec)|Melhor indivíduo (Fitness)|
+| - | - | - |
+|1|227|4179.484519391407|
+|2|59|4311.81953965736|
+|3|479|4066.4869179125685|
+|4|39|4358.796402268067|
+|5|423|4215.996046311673|
+|6|153|4070.505215763173|
+|7|30|4142.208922161478|
+|8|21|4008.1968452455326|
+|9|60|3860.918914389334|
+|10|35|4121.909836353164|
+||Média dos Fitness:|4133,6323159453700|
 **Figura 1.1** - Diagrama de classe simples
 
-**Figura 2.1** - Cruzamento PMX Modificado - Parte 1.Pais
+![](Aspose.Words.77865093-fc02-4449-9f7a-e500c130a3d5.001.png)
 
+**Figura 2.1** - Cruzamento PMX Modificado - Parte 1. Pais
 
-**Figura 2.2** - Cruzamento PMX Modificado - Parte 2.Filhos
+![](Aspose.Words.77865093-fc02-4449-9f7a-e500c130a3d5.002.png)
 
+**Figura 2.2** - Cruzamento PMX Modificado - Parte 2. Filhos
 
-## REFERÊNCIAS
+![](Aspose.Words.77865093-fc02-4449-9f7a-e500c130a3d5.003.png)
 
-Heinen,M.R.(2005).Análiseeimplementaçãodealgoritmosparaoroteamentode
-veículos.
+**REFERÊNCIAS**
 
-MALAQUIAS,N.G.(2006).Usodosalgoritmosgenéticosparaaotimizaçãoderotas
-de distribuição.
-https://repositorio.ufu.br/bitstream/123456789/14632/1/NGLMalaquiasDISPRT.pdf
+Heinen, M. R. (2005). Análise e implementação de algoritmos para o roteamento de veículos.
 
-PACHECO, M.A (2013) Algoritmos genéticos: princípiose aplicações.
+MALAQUIAS, N. G. (2006). Uso dos algoritmos genéticos para a otimização de rotas de distribuição. https://repositorio.ufu.br/bitstream/123456789/14632/1/NGLMalaquiasDISPRT.pdf
 
-https://repositorio.ufu.br/bitstream/123456789/14632/1/NGLMalaquiasDISPRT.pdf
+PACHECO, M.A (2013) Algoritmos genéticos: princípios e aplicações. https://repositorio.ufu.br/bitstream/123456789/14632/1/NGLMalaquiasDISPRT.pdf
 
-WEI. J.D (2008).
-https://www.researchgate.net/publication/221787155_Approaches_to_the_Travelling
-_Salesman_Problem_Using_Evolutionary_Computing_Algorithms
+WEI. J.D (2008). https://www.researchgate.net/publication/221787155\_Approaches\_to\_the\_Travelling \_Salesman\_Problem\_Using\_Evolutionary\_Computing\_Algorithms
 
-RAMOS.J.M. (2001).ImplementaçãoeAnálisedoProblemadoCaixeiroViajante
-usando uma nova abordagem através dos Algoritmos Genético e Simulated
-Annealing https://repositorio.ufsc.br/xmlui/handle/123456789/
-
-
+RAMOS. J. M. (2001). Implementação e Análise do Problema do Caixeiro Viajante usando uma nova abordagem através dos Algoritmos Genético e Simulated Annealing https://repositorio.ufsc.br/xmlui/handle/123456789/79640
